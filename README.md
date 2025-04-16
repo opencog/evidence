@@ -222,6 +222,13 @@ It is expected that transformers, or at least some transformer-like
 structure, will play an active part in the implementation. Exactly what
 that will be is unknown.
 
+The intent is to make this a primarily experimental effort: to actually
+write some code that actually does something, no matter how
+underwhelming, incomplete, or inadequate that code might be. The current
+intent is to not use vibe coding or any kind of vibes for this, as it is
+the author's goal to understand what is happening, at the sub-atomic
+level, as it were.
+
 Detailed Design
 ---------------
 See the [design notes](Design.md) for further rambling design thoughts.
