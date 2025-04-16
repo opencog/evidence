@@ -138,7 +138,69 @@ same time, transformers, such as BERT, and now, more generally DL-NN
 LLM's have shown that statistica techniques, taken from corpus
 linguistics, are far more adept at encoding the structure of language.
 
-but also
+Thus, part of the problem is to obtain structural factoids. That is,
+they need to be perceived, sensed, obtained from the external
+environment. This requires the perception of not just individual data,
+e.g. a single birth record, but also the perception of the "shape" of
+the structure: birth records have a date and a name; but the date may
+only appear at the top of the page, with a list of names below it. Some
+classes of birth records provvide additional info, others do not. An
+extreme form is the obituary: all of us know what to expect; but the
+actual informational detail can be spotty or it can provide a wealth of
+info. Roughly speaking, no two obituaries have the same "shape", even
+though they all have at least a few "jigsaw tab connectors" which can be
+joined into the existing weave of genealogical cloth.
+
+That is, not only must the structural factoids be perceived, using some
+sort of sensory system, but also the structure itself must be perceived,
+presumably with a sensory system built into a post-processing stage.
+That is, the data flow must consist of blobs of data, together with a
+description of the encoding of that blob of data. The encoding is itself
+the result of an act of sensory perception applied to the data stream,
+but at a meta-level: i.e. after preliminary analysis has been done.
+Thus, this is a recursive process.
+
+Figuring out what to perceive is also a learning process: examining and
+comparing input steams allows common patterns to be perceived in those
+streams. The common patterns are "learned". The common patterns can then
+be used to classify the input stream into buckets. Thus, classification
+can also be thought of as a sensory organ. It's not instant-on: it takes
+a while to come up to speed. Once running, it can provide descriptions
+of data. Which perhaps sounds fine, but raises the problem of the
+homunculus: who, exactly is perceiving the structural forms that the
+classification susbsystem is generating?
+
+Clearly, there are a number of recursive issues. Transformers side-step
+these issues into two ways. The low-level issue of perceiving structure
+is swept aside by only asking for the probablity P(X_n | Y_1, ..., Y_k)
+of some occurance of X_n conditioned in a set of (earlier) Y's. This
+pushes all structural information into the weight matrix, in some opaque
+and non-interpretable way. Yes, leaps and bounds in interpretability are
+being made: the tens of thousands of employees of the
+multi-hundred-billion-dollar AI companies are not sitting on their
+hands. This project is not a single-handed reversal of those efforts.
+
+The second way that transformers avoid the problem of the homunculus
+is that they don't: the actual human user of ChatGPT or Claude or Grok
+has at least some vague idea of what they wish to accomplish by using
+these systems. It remains an open question in neuroscience as to exactly
+how humans decide what to do next.
+
+To recap: the goal of the project is to perceive structure, and to
+provide a formal, mathematical, algorithmic description of how structure
+is perceived. A subgoal is to boot-strap into perception, i.e. avoid the
+homunculus.
+
+Although the word "structure" here is meant to evoke a sensation of good
+olde-fashioned symbolic AI, there is no presupposition of avoiding
+neural nets. Indeed, the structure of a given fixed DL-NN is described
+symbolicly: its written in ROCm or CUDA, its written in Python or
+TensorFlow. These are structural, symbolic languages.  Insofar as there
+is progress at the meta-level, then it is in the use of vibe coding to
+design transformers. Which is indeed an interesting approach.  But the
+goal here could be rephrased as saying "a system that can vibe-code
+itself". And the basic research to acheive this.
+
 
 
 Status
