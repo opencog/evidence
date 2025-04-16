@@ -2,7 +2,7 @@ Evidence
 ========
 A primary intellectual activity is the gathering of evidence to
 determine the nature and structure of things. It is closely related to
-the task of discrerning similarity, and of reasoning by analogy.
+the task of discerning similarity, and of reasoning by analogy.
 This git repo is a rumination of these tasks, plus an attempt to express
 these ideas as functional code, expressed as OpenCog [Atomese](https://wiki.opencog.org/w/Atomese).
 
@@ -77,7 +77,7 @@ The judgement call is often hierarchical in nature. For example: do the
 father's and mother's names match? Well, perhaps they do, but there is
 some alteration in spelling: Maria vs. Mary, Elizabeth vs. Betty. One
 can assign some probability or confidence in the belief that these are
-the same parents. To butress that belief, one can look at siblings: if
+the same parents. To buttress that belief, one can look at siblings: if
 two children are born three months apart to the same mother, then
 this is a piece of negative evidence that absolutely demands a rejection
 of a match. That is, of course, only if the recorded birthday is
@@ -89,9 +89,9 @@ agglomeration of the supporting evidence. A preponderance of evidence
 is desired. This can be taken as a mathematical mean or average, but
 it can also be some more complex algorithm extending across the
 structure: for example, "voting in new members to the club of facts".
-In comp sci, similarity is measured with cosine distance, Jaquard
-distance, mutual information, Kullbeck-Liebler divergence or any one
-of dozens or hundres of different similarity measures, which can be
+In comp sci, similarity is measured with cosine distance, Jacquard
+distance, mutual information, Kullback-Leibler divergence or any one
+of dozens or hundreds of different similarity measures, which can be
 aggregated and weighted in a large variety of ways (random forests,
 collections of experts, membership clubs, etc.)
 
@@ -101,11 +101,11 @@ often having the same name, but not always; often having the same
 timestamp, but not always; often appearing in the same directory, but
 not always; often having the same size, but not always; often having the
 same content, but sometimes having all-zeros where the data should have
-been. Or perhaps MP3's with missng bytes, or images with steganographic
+been. Or perhaps MP3's with missing bytes, or images with steganographic
 watermarks. The challenge is to find the copy of the file that is least
 likely to be corrupted, and is most likely to be "correct". Despite the
 fact that all data is directly available from the operating system,
-using very pure and well-defineed, structured software interfaces, this
+using very pure and well-defined, structured software interfaces, this
 turns out to be a hard problem.
 
 Project Goals
@@ -119,7 +119,7 @@ academia, dating back to the 1960's.
 
 Here, the idea is modified: The jigsaw connector tabs are not strict
 yes/no matches, but have some confidence or likelihood. This confidence
-or likelylihood is obtained from hierarchical subrelations: do
+or likelihood is obtained from hierarchical sub-relations: do
 sub-pieces also fit? This confidence may also be obtained by spreading
 over the local neighborhood: is coherence maintained over not just
 nearest neighbors, but also next-nearest-neighbors, etc.? In Link
@@ -132,10 +132,10 @@ they come from a "lexis", a dictionary of possible forms created by
 professional linguists. That lexis is presumed to encompass the
 morpho-syntactic structure of language. The lessons of structural
 linguistics and syntactic analysis from the 1990's-2010's is that such
-dictionaries are always incomplete, and that no hurculean effort by grad
+dictionaries are always incomplete, and that no herculean effort by grad
 students can ever come to a conclusion. The task is overwhelming. At the
 same time, transformers, such as BERT, and now, more generally DL-NN
-LLM's have shown that statistica techniques, taken from corpus
+LLM's have shown that statistical techniques, taken from corpus
 linguistics, are far more adept at encoding the structure of language.
 
 Thus, part of the problem is to obtain structural factoids. That is,
@@ -144,7 +144,7 @@ environment. This requires the perception of not just individual data,
 e.g. a single birth record, but also the perception of the "shape" of
 the structure: birth records have a date and a name; but the date may
 only appear at the top of the page, with a list of names below it. Some
-classes of birth records provvide additional info, others do not. An
+classes of birth records provide additional info, others do not. An
 extreme form is the obituary: all of us know what to expect; but the
 actual informational detail can be spotty or it can provide a wealth of
 info. Roughly speaking, no two obituaries have the same "shape", even
@@ -194,7 +194,7 @@ homunculus.
 Although the word "structure" here is meant to evoke a sensation of good
 olde-fashioned symbolic AI, there is no presupposition of avoiding
 neural nets. Indeed, the structure of a given fixed DL-NN is described
-symbolicly: its written in ROCm or CUDA, its written in Python or
+symbolically: its written in ROCm or CUDA, its written in Python or
 TensorFlow. These are structural, symbolic languages.  Insofar as there
 is progress at the meta-level, then it is in the use of vibe coding to
 design transformers. Which is indeed an interesting approach.  But the
@@ -206,8 +206,8 @@ Methodology
 Little has been done or decided as of yet. However, it is expected that
 the general theoretical foundations, and the actual algorithmic
 explorations will be based on the following systems, theories and
-infrastrcture:
-* [Atomese](https://wiki.opencog.org/w/Atomese), a strutural description system.
+infrastructure:
+* [Atomese](https://wiki.opencog.org/w/Atomese), a structural description system.
 * [Sheaves](https://github.com/opencog/atomspace/tree/master/opencog/sheaf),
   a general theory for assembling. weaving together structural
   information.
