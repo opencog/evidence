@@ -33,8 +33,8 @@ math and code. The terminology will bounce between abstract concepts and
 low-level code. Apologies in advance if it veers off into the opaque.
 The topic is difficult.
 
-Genealogy
----------
+An Example from Genealogy
+-------------------------
 A concrete example is in order, one that sits part-way between
 abstraction and algorithmic directness. Genealogical research provides
 such an example.
@@ -108,6 +108,37 @@ fact that all data is directly available from the operating system,
 using very pure and well-defineed, structured software interfaces, this
 turns out to be a hard problem.
 
+Project Goals
+-------------
+The goal of the project is to be able to provide a generic framework for
+perceiving structural factoids, and stitching them together. Earlier
+work insists that structural factoids resemble jigsaw puzzle pieces,
+which can be stitched together to form sheaves. [AtomSpace Sheaves](https://github.com/opencog/atomspace/tree/master/opencog/sheaf)
+provides a general introduction; the idea has a long pedigree in
+academia, dating back to the 1960's.
+
+Here, the idea is modified: The jigsaw connector tabs are not strict
+yes/no matches, but have some confidence or likelihood. This confidence
+or likelylihood is obtained from hierarchical subrelations: do
+sub-pieces also fit? This confidence may also be obtained by spreading
+over the local neighborhood: is coherence maintained over not just
+nearest neighbors, but also next-nearest-neighbors, etc.? In Link
+Grammar, this is called a "linkage": all jigsaws must be linkable, from
+one end to the other; this is a global property infered from the local
+linkage constraints.
+
+There do structural factoids come from? In natural language parsing,
+they come from a "lexis", a dictionary of possible forms created by
+professional linguists. That lexis is presumed to encompass the
+morpho-syntactic structure of language. The lessons of structural
+linguistics and syntactic analysis from the 1990's-2010's is that such
+dictionaries are always incomplete, and that no hurculean effort by grad
+students can ever come to a conclusion. The task is overwhelming. At the
+same time, transformers, such as BERT, and now, more generally DL-NN
+LLM's have shown that statistica techniques, taken from corpus
+linguistics, are far more adept at encoding the structure of language.
+
+but also
 
 
 Status
