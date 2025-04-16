@@ -36,7 +36,43 @@ The topic is difficult.
 Genealogy
 ---------
 A concrete example is in order, one that sits part-way between
-abstraction and algorithmic directness.
+abstraction and algorithmic directness. Genealogical research provides
+such an example.
+
+Genealogy, as practiced by familysearch.org (controlled by the Church
+of the LDS) is semi-automated.  The raw material consists of public data
+about births, deaths, census records, military draft records,
+naturalization records, passenger lists, parish church records,
+obituaries and the like. Each data item provides a bit of information
+that attests a specific event. Some are highly structured: birth
+certificates have a regular form. Others, not so much: obituaries may or
+may not list relatives, and may or may not make the relationships clear.
+The task is to stitch together a genealogical structure out of these
+fragmentary jigsaw pieces.
+
+The evidentiary issue is that no single attestation of an event or
+relation is fully trustworthy.  A short survey is worthwhile.
+Most of the records predate computerization, and are hand-written,
+usually in cursive. Cursive writing is not standardized: there is a vast
+variety of styles, especially problematic in 18th and 19th century
+European records. There are errors from the transcription of these
+texts. The spelling of names and surnames presents a challenge,
+espcially for European immigrants, where the spelling conventions clash
+between the native language and English: many names are simplified and
+Anglicized. Catholic Church parish records often convert native names to
+Church Latin. Census records indicate that some people are either sloppy
+or are fudging the facts, or perhaps they really do not know thier
+birthdays or how they were spelling their surname a decade earlier.
+Many surnames are extremely common, and there are many couples named
+"John & Mary".
+
+In practice, the stitching-together is semi-automated. The
+familysearch.org system offers up a list of possible record matches,
+based on names, dates, locations. A human reviewer then has to review
+the record and make a judgement call: is this an appropriate match? If
+so, it can be added to a record, buttressing support for a particular
+name, date, location, spelling, event.
+
 
 Status
 ------
