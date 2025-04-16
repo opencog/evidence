@@ -57,11 +57,11 @@ usually in cursive. Cursive writing is not standardized: there is a vast
 variety of styles, especially problematic in 18th and 19th century
 European records. There are errors from the transcription of these
 texts. The spelling of names and surnames presents a challenge,
-espcially for European immigrants, where the spelling conventions clash
+especially for European immigrants, where the spelling conventions clash
 between the native language and English: many names are simplified and
 Anglicized. Catholic Church parish records often convert native names to
 Church Latin. Census records indicate that some people are either sloppy
-or are fudging the facts, or perhaps they really do not know thier
+or are fudging the facts, or perhaps they really do not know their
 birthdays or how they were spelling their surname a decade earlier.
 Many surnames are extremely common, and there are many couples named
 "John & Mary".
@@ -76,8 +76,8 @@ name, date, location, spelling, event.
 The judgement call is often hierarchical in nature. For example: do the
 father's and mother's names match? Well, perhaps they do, but there is
 some alteration in spelling: Maria vs. Mary, Elizabeth vs. Betty. One
-can assign some probability or confidence in the beleif that these are
-the same parents. To butress that beleif, one can look at sibilings: if
+can assign some probability or confidence in the belief that these are
+the same parents. To butress that belief, one can look at siblings: if
 two children are born three months apart to the same mother, then
 this is a piece of negative evidence that absolutely demands a rejection
 of a match. That is, of course, only if the recorded birthday is
@@ -96,11 +96,11 @@ aggregated and weighted in a large variety of ways (random forests,
 collections of experts, membership clubs, etc.)
 
 A much simpler, and more easily automated example occurs in operating
-system storage integrity. Here, one is presented with mutiple files,
+system storage integrity. Here, one is presented with multiple files,
 often having the same name, but not always; often having the same
 timestamp, but not always; often appearing in the same directory, but
 not always; often having the same size, but not always; often having the
-same content, but sometimes haveing all-zeros where the data should have
+same content, but sometimes having all-zeros where the data should have
 been. Or perhaps MP3's with missng bytes, or images with steganographic
 watermarks. The challenge is to find the copy of the file that is least
 likely to be corrupted, and is most likely to be "correct". Despite the
@@ -124,7 +124,7 @@ sub-pieces also fit? This confidence may also be obtained by spreading
 over the local neighborhood: is coherence maintained over not just
 nearest neighbors, but also next-nearest-neighbors, etc.? In Link
 Grammar, this is called a "linkage": all jigsaws must be linkable, from
-one end to the other; this is a global property infered from the local
+one end to the other; this is a global property inferred from the local
 linkage constraints.
 
 There do structural factoids come from? In natural language parsing,
@@ -161,19 +161,19 @@ but at a meta-level: i.e. after preliminary analysis has been done.
 Thus, this is a recursive process.
 
 Figuring out what to perceive is also a learning process: examining and
-comparing input steams allows common patterns to be perceived in those
+comparing input streams allows common patterns to be perceived in those
 streams. The common patterns are "learned". The common patterns can then
 be used to classify the input stream into buckets. Thus, classification
 can also be thought of as a sensory organ. It's not instant-on: it takes
 a while to come up to speed. Once running, it can provide descriptions
 of data. Which perhaps sounds fine, but raises the problem of the
 homunculus: who, exactly is perceiving the structural forms that the
-classification susbsystem is generating?
+classification subsystem is generating?
 
 Clearly, there are a number of recursive issues. Transformers side-step
 these issues into two ways. The low-level issue of perceiving structure
-is swept aside by only asking for the probablity P(X_n | Y_1, ..., Y_k)
-of some occurance of X_n conditioned in a set of (earlier) Y's. This
+is swept aside by only asking for the probability P(X_n | Y_1, ..., Y_k)
+of some occurrence of X_n conditioned in a set of (earlier) Y's. This
 pushes all structural information into the weight matrix, in some opaque
 and non-interpretable way. Yes, leaps and bounds in interpretability are
 being made: the tens of thousands of employees of the
@@ -199,7 +199,7 @@ TensorFlow. These are structural, symbolic languages.  Insofar as there
 is progress at the meta-level, then it is in the use of vibe coding to
 design transformers. Which is indeed an interesting approach.  But the
 goal here could be rephrased as saying "a system that can vibe-code
-itself". And the basic research to acheive this.
+itself". And the basic research to achieve this.
 
 Methodology
 -----------
