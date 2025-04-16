@@ -201,8 +201,32 @@ design transformers. Which is indeed an interesting approach.  But the
 goal here could be rephrased as saying "a system that can vibe-code
 itself". And the basic research to acheive this.
 
+Methodology
+-----------
+Little has been done or decided as of yet. However, it is expected that
+the general theoretical foundations, and the actual algorithmic
+explorations will be based on the following systems, theories and
+infrastrcture:
+* [Atomese](https://wiki.opencog.org/w/Atomese), a strutural description system.
+* [Sheaves](https://github.com/opencog/atomspace/tree/master/opencog/sheaf),
+  a general theory for assembling. weaving together structural
+  information.
+* [Sensorimotor](https://github.com/opencog/sensory), a framework for
+  sensory perception.
+* [Agents](https://github.com/opencog/agents), a framework for
+  distinguishing "inside" from "outside", such that the "inside"
+  accumulates information about the "outside" into a "world model" of
+  "what's out there".
+
+It is expected that transformers, or at least some transformer-like
+structure, will play an active part in the implementation. Exactly what
+that will be is unknown.
+
+Detailed Design
+---------------
+See the [design notes](Design.md) for further rambling design thoughts.
 
 
 Status
 ------
-Version 0.0.0. Nothing yet.
+***Version 0.0.1.*** An outline of the project goals has been written.
