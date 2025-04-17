@@ -185,6 +185,67 @@ So here we go.
 Ising Model
 \end_layout
 
+\begin_layout Standard
+The part of the Ising Model that is interesting here is the Hamiltonian.
+ It is a sum of pair–wise interactions of nearest neighbors:
+\begin_inset Formula 
+\[
+\mathcal{H}=-\sum_{ij}J_{ij}\sigma_{i}\sigma_{j}-\mu\sum_{j}h_{j}\sigma_{j}
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+ the spins.
+ I won't explain this.
+ I copied it from Wikipedia.
+ Read that article if you don't know what this is.
+\end_layout
+
+\begin_layout Section*
+Link Grammar
+\end_layout
+
+\begin_layout Standard
+I won't explain what Link Grammar (LG) is, or how it works.
+ Read the docs.
+ However, I want to write down a a Hamiltonian for it, which is something
+ that the Link Grammar docs do not do.
+ It is analogous to the Ising Model Hamiltonian:
+\begin_inset Formula 
+\[
+\mathcal{H}=-\sum_{ijk\cdots}C_{ijk\cdots}w_{i}w_{j}w_{k}\cdots
+\]
+
+\end_inset
+
+The 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ are the words in the sentence.
+ Written out here, in order to resemble the Ising Model.
+ The 
+\begin_inset Formula $C_{ijk\cdots}$
+\end_inset
+
+ is meant to be the LG cost, a single real–valued floating point number,
+ of the the LG disjunct 
+\begin_inset Formula $ijk\cdots$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The analogy here is strained, and the notation is inadequate.
+ This is a brainstorm idea, so we'll fix the problems here later.
+ If the idea pans out.
+\end_layout
+
 \begin_layout Section*
 The End
 \end_layout
