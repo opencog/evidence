@@ -584,7 +584,37 @@ The sum ranges over all possible connected graphs over the words in the
 \end_layout
 
 \begin_layout Standard
-Here, we arrive at the next stumbling block
+Here, we arrive at the next stumbling block.
+ Is it correct to call 
+\begin_inset Formula $h\left(G\right)$
+\end_inset
+
+ the energy, or is it something else? The above has the classic form of
+ a superposition.
+ If we interpret a single graph to be a 
+\begin_inset Quotes eld
+\end_inset
+
+state
+\begin_inset Quotes erd
+\end_inset
+
+, then the above is a superposition of states, and 
+\begin_inset Formula $H\left(S\right)$
+\end_inset
+
+ should be interpreted as the partition function, and not the energy.
+ For partition functions, the appropriate notation would be a Boltzmann
+ sum:
+\begin_inset Formula 
+\[
+Z_{\beta}=\sum_{G\in\mathcal{G}}e^{-\beta h\left(G\right)}
+\]
+
+\end_inset
+
+So, which is it? I'm confused, here.
+ 
 \end_layout
 
 \begin_layout Section*
