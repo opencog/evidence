@@ -116,9 +116,9 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-What follows will be free-form unstructured writing about aggregate satisfiabili
+What follows will be free–form unstructured writing about aggregate satisfiabili
 ty.
- It is an attempt to reconcile a number of quite common and inter-related
+ It is an attempt to reconcile a number of quite common and inter–related
  ideas, and to develop a mathematical frammework for them.
  The key ingredients are:
 \end_layout
@@ -129,7 +129,7 @@ The Ising model as a motivational example.
 \end_layout
 
 \begin_layout Itemize
-Link Grammar parsing, in which syntactic jigdaw pieces are assembled to
+Link Grammar parsing, in which syntactic jigsaw pieces are assembled to
  create parses, called 
 \begin_inset Quotes eld
 \end_inset
@@ -149,7 +149,7 @@ Aggregate satisfiability, in that satisfiability refers to discrete logical
 \end_layout
 
 \begin_layout Standard
-There are also some other inter-related concepts, which may of may not the
+There are also some other inter–related concepts, which may of may not the
  ideas to be developed here.
  These include ideas like:
 \end_layout
@@ -169,7 +169,7 @@ Hopfield networks: these have commonality with regard to assorted physics
 \begin_layout Itemize
 Mean field theory.
  Who knows.
- A knee-jerk reaction is that mean–field theory will describe the rsults.
+ A knee–jerk reaction is that mean–field theory will describe the rsults.
  I suppose.
  Seems plausible.
 \end_layout
@@ -261,7 +261,7 @@ What are the
  always, no matter what, and then the sum is simply a sum over the costs
  of the disjuncts appearing in the sentence.
  This is the conventional LG model.
- Another intrpretation is to write 
+ Another interpretation is to write 
 \begin_inset Formula $w_{i}=+1$
 \end_inset
 
@@ -270,7 +270,7 @@ What are the
 \end_inset
 
  in the sentence, else it is zero.
- To arrive at this, we have to be more carefuly with the notation: Define
+ To arrive at this, we have to be more carefully with the notation: Define
 \begin_inset Formula 
 \[
 \delta\left(w,v\right)=\begin{cases}
@@ -308,9 +308,9 @@ so that the subscript
 \begin_layout Standard
 This interpretation is unsatisfying, and wrong, the analogy doesn't work.
  First of all, the spins in the Ising model can flip up and down, whereas
- the observed word-order in a given sentence is fixed, inviolable.
+ the observed word–order in a given sentence is fixed, inviolable.
  The above picture could work for sentence generation, where we are considering
- how to generate some senttence, but that is not yet currently viable given
+ how to generate some sentence, but that is not yet currently viable given
  what is written here, so far,
 \end_layout
 
@@ -319,9 +319,9 @@ The other issue is that, in classical LG, the disjunct costs
 \begin_inset Formula $C_{uvw\cdots}$
 \end_inset
 
- are hand-crafted by the academic scholar defining the lexis.
+ are hand–crafted by the academic scholar defining the lexis.
  The learn project attempts to replace these costs by those learned from
- a training corpus, starting from a pair-wise frequenist counting scheme.
+ a training corpus, starting from a pair–wise frequentist counting scheme.
  The 
 \begin_inset Formula $C_{uvw\cdots}$
 \end_inset
@@ -405,7 +405,7 @@ sentence
  to be independent.
  For now.
  Of course, ten books written on the same topic are not really independent
- of one-another, but lets not get ahead of ourselves.
+ of one–another, but lets not get ahead of ourselves.
 \end_layout
 
 \begin_layout Standard
@@ -448,7 +448,7 @@ where the sum ranges over all sentences in the corpus, and
 
 \begin_layout Standard
 And so here we meet our first conceptual problem: the linkage is not unique:
- any given sentence may have many linkages, and, in fact, we have to consdier,
+ any given sentence may have many linkages, and, in fact, we have to consider,
  in principle, all possible linkages.
 \end_layout
 
@@ -533,7 +533,7 @@ For each sentence
 
 .
  As a set, the order no longer really matters.
- But it is a multi-set, so its OK to have a word show repeatedly.
+ But it is a multi–set, so its OK to have a word show repeatedly.
  An edge is just a conventional graph edge: it is an ordered pair of vertexes.
  Notation: 
 \begin_inset Formula $E_{ij}=\left(w_{i},w_{j}\right)$
@@ -550,7 +550,7 @@ For each sentence
 \end_inset
 
  the set of edges can be thought of that the adjacency matrix.
- This is all very super-basic stuff, but I am trying to be as clear as posible
+ This is all very super–basic stuff, but I am trying to be as clear as possible
  here.
  Sorry.
  The adjacency matrix is usually take to be a matrix woth just ones and
@@ -563,11 +563,11 @@ For each sentence
 A connected graph is one where every vertex is reachable by a path from
  any other vertex.
  We want to consider only connected graphs; the ability to disconnect will
- be handled via a different machanism.
+ be handled via a different mechanism.
 \end_layout
 
 \begin_layout Standard
-For a fixed senttence 
+For a fixed sentence 
 \begin_inset Formula $S$
 \end_inset
 
@@ -614,6 +614,59 @@ Z_{\beta}=\sum_{G\in\mathcal{G}}e^{-\beta h\left(G\right)}
 \end_inset
 
 So, which is it? I'm confused, here.
+\end_layout
+
+\begin_layout Standard
+Lets go outside and touch grass.
+ In classical physics, in the classical Ising model, we say that the spins
+ at each lattice site have a distinct, explicit value.
+ Any given physical instance consists of only one configuration of those
+ spins.
+ The thermodynamic ensemble is the collection of all possible spin arrangements.
+ The partition function is a sum over the entire ensemble, giving a Boltzmann
+ weight to each particular spin arrangement.
+\end_layout
+
+\begin_layout Standard
+What, exactly am I doing here, if I am confronted by a sentence, a sequence
+ of words, a sequence of tokens? Should I say that there is only one acceptable
+ parse of that sentence? This is the classic Chomskian answer.
+ Do I need to acknowledge the possibility of multiple ambiguous parses?
+ Of course: 
+\begin_inset Quotes eld
+\end_inset
+
+I saw the man with the telescope.
+\begin_inset Quotes erd
+\end_inset
+
+ said the linguistics textbooks, back when I was in college.
+ Is my reality split, a superposition of two different possibilities? Well,
+ yes it is.
+ The quantum people say so.
+ The Bayesian people say so, and so do the neuroscientists.
+ The linguists merely state that both parses are possible, until I learn
+ some additional information: how has the telescope: me, or the man? Once
+ I learn this additional bit of information, the wave function collapses,
+ the sentence is no longer ambiguous, I know which parse to use, and how
+ to determine the meaning of that sentence.
+\end_layout
+
+\begin_layout Standard
+Several problems here.
+ First, the mistake of treating sentences as assertions of truth.
+ Peotry is ambiguous, and one of the points of poetry is that it never collapses.
+ You get to reinterpret poetry in various ways: its evocative, not assertive.
+ Next, parsing is a syntactic activity; we've not touched base with semantics.
+\end_layout
+
+\begin_layout Standard
+So, where does that leave us? For now, lets ditch semantics: the original
+ problem was to discover a collection of disjuncts that adequately describe
+ possible syntactic parses of sentences.
+ The goal was to do this with some sort of expression of aggregate satisfiabilit
+y: some kind of function assigning weights to disjuncts, and maximizing
+ it.
  
 \end_layout
 
