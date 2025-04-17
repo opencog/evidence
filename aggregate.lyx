@@ -92,7 +92,7 @@
 \begin_body
 
 \begin_layout Title
-Aggregate
+Aggregate Satisfaction
 \end_layout
 
 \begin_layout Date
@@ -104,7 +104,8 @@ Linas Vepštas
 \end_layout
 
 \begin_layout Abstract
-Stuff
+Diary entry, attempting to work out some ideas.
+ 
 \end_layout
 
 \begin_layout Section*
@@ -112,7 +113,76 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-P
+What follows will be free-form unstructured writing about aggregate satisfiabili
+ty.
+ It is an attempt to reconcile a number of quite common and inter-related
+ ideas, and to develop a mathematical frammework for them.
+ The key ingredients are:
+\end_layout
+
+\begin_layout Itemize
+The Ising model as a motivational example.
+ This pulls in assorted concepts from physics that can be elaborated on.
+\end_layout
+
+\begin_layout Itemize
+Link Grammar parsing, in which syntactic jigdaw pieces are assembled to
+ create parses, called 
+\begin_inset Quotes eld
+\end_inset
+
+linkages
+\begin_inset Quotes erd
+\end_inset
+
+, that are assigned a score.
+ The lower the linkage cost, the more likely correct linkage is correct.
+\end_layout
+
+\begin_layout Itemize
+Aggregate satisfiability, in that satisfiability refers to discrete logical
+ expressions, while aggregate suggests that there is some mean that indicates
+ the best possible solution.
+\end_layout
+
+\begin_layout Standard
+There are also some other inter-related concepts, which may of may not the
+ ideas to be developed here.
+ These include ideas like:
+\end_layout
+
+\begin_layout Itemize
+Markov Logic Networks: perhaps what I intend to describe will end up being
+ a Markov Logic Network.
+ Or maybe not.
+\end_layout
+
+\begin_layout Itemize
+Hopfield networks: these have commonality with regard to assorted physics
+ concepts.
+ Maybe they connect with what I intend to describe, and maybe they don't.
+\end_layout
+
+\begin_layout Itemize
+Mean field theory.
+ Who knows.
+ A knee-jerk reaction is that mean–field theory will describe the rsults.
+ I suppose.
+ Seems plausible.
+\end_layout
+
+\begin_layout Itemize
+Ensembles.
+ Of course, everything to be considered is meant to be an ensemble.
+ But I won't list this as a central point.
+\end_layout
+
+\begin_layout Standard
+So here we go.
+\end_layout
+
+\begin_layout Section*
+Ising Model
 \end_layout
 
 \begin_layout Section*
