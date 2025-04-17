@@ -553,7 +553,7 @@ For each sentence
  This is all very super–basic stuff, but I am trying to be as clear as possible
  here.
  Sorry.
- The adjacency matrix is usually take to be a matrix woth just ones and
+ The adjacency matrix is usually take to be a matrix with just ones and
  zeros in it, with one's taken to mean there is an edge, and zero meaning
  there is not.
  This can be generalized, but we're not doing that yet.
@@ -660,6 +660,11 @@ Several problems here.
  Next, parsing is a syntactic activity; we've not touched base with semantics.
 \end_layout
 
+\begin_layout Section*
+Training vs.
+ Parsing
+\end_layout
+
 \begin_layout Standard
 So, where does that leave us? For now, lets ditch semantics: the original
  problem was to discover a collection of disjuncts that adequately describe
@@ -667,7 +672,96 @@ So, where does that leave us? For now, lets ditch semantics: the original
  The goal was to do this with some sort of expression of aggregate satisfiabilit
 y: some kind of function assigning weights to disjuncts, and maximizing
  it.
- 
+\end_layout
+
+\begin_layout Standard
+That is, the corpus is fixed, immutable.
+ The words in the sentences are fixed, immutable.
+ There's a confusion between two different tasks.
+ In one task, the costs of the disjuncts are known, fixed, and the goal
+ of parsing is to find the collection of disjuncts that best fit the sentence.
+ The sum–total of these costs is the aggregate satisfiability.
+ In this mode, the disjuncts are analogous to the Ising spins, and we want
+ to find an arrangement of these spins/disjuncts that minimize the parsing
+ error: minimize the parse cost.
+\end_layout
+
+\begin_layout Standard
+Just like a ferromagnetic lattice, we acknowledge that there might be multiple
+ ambiguous parses, and that's OK, there is nothing wrong with that ambiguity.
+ For this task, it is entirely appropriate to use the partition function,
+ because the partition function captures the likelihood of any given parse
+ as being correct.
+ That is, 
+\begin_inset Formula $h\left(G\right)$
+\end_inset
+
+ is the 
+\begin_inset Quotes eld
+\end_inset
+
+energy
+\begin_inset Quotes erd
+\end_inset
+
+ of a parse 
+\begin_inset Formula $G$
+\end_inset
+
+ and the probability of that parse being reasonable is
+\begin_inset Formula 
+\[
+P_{\beta}\left(G\right)=\frac{e^{-\beta h\left(G\right)}}{Z_{\beta}}
+\]
+
+\end_inset
+
+This is the 
+\begin_inset Quotes eld
+\end_inset
+
+configuration probability
+\begin_inset Quotes erd
+\end_inset
+
+ of the parse 
+\begin_inset Formula $G$
+\end_inset
+
+, and there sentences like 
+\begin_inset Quotes eld
+\end_inset
+
+I saw the man with the telescope
+\begin_inset Quotes erd
+\end_inset
+
+ just says there are two parses 
+\begin_inset Formula $G$
+\end_inset
+
+ and 
+\begin_inset Formula $G^{\prime}$
+\end_inset
+
+ with 
+\begin_inset Formula $h\left(G\right)=h\left(G^{\prime}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+So that is one task: find the statistical distribution of parses that are
+ the most likely.
+\end_layout
+
+\begin_layout Standard
+The other task is to learn what the disjuncts are, to learn the cost of
+ each disjunct.
+ The costs are NOT fixed, we are instead exploring the space of possible
+ disjunct assignements.
+ For this we need to ...
 \end_layout
 
 \begin_layout Section*
