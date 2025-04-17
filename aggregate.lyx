@@ -410,15 +410,15 @@ sentence
 
 \begin_layout Standard
 The corpus is 
-\begin_inset Formula $\mathcal{C}=\left\{ S_{i}\right\} $
+\begin_inset Formula $\mathcal{C}=\left\{ S_{a}\right\} $
 \end_inset
 
  which is a set of sentences 
-\begin_inset Formula $S_{i}$
+\begin_inset Formula $S_{a}$
 \end_inset
 
  labelled with some index 
-\begin_inset Formula $i$
+\begin_inset Formula $a$
 \end_inset
 
 .
@@ -434,13 +434,13 @@ The corpus is
  The Hamiltonian is then
 \begin_inset Formula 
 \[
-\mathcal{H}=\sum_{S_{i}\in\mathcal{C}}H\left(S_{i}\right)
+\mathcal{H}=\sum_{S_{a}\in\mathcal{C}}H\left(S_{a}\right)
 \]
 
 \end_inset
 
 where the sum ranges over all sentences in the corpus, and 
-\begin_inset Formula $H\left(S_{i}\right)$
+\begin_inset Formula $H\left(S_{a}\right)$
 \end_inset
 
  is the total cost of the parse (linkage) of that sentence.
@@ -450,6 +450,141 @@ where the sum ranges over all sentences in the corpus, and
 And so here we meet our first conceptual problem: the linkage is not unique:
  any given sentence may have many linkages, and, in fact, we have to consdier,
  in principle, all possible linkages.
+\end_layout
+
+\begin_layout Standard
+So here we flop over the a graph/network representation.
+ First, lets drop the subscript 
+\begin_inset Formula $a$
+\end_inset
+
+ on 
+\begin_inset Formula $S_{a}$
+\end_inset
+
+ and just say 
+\begin_inset Formula $S\in\mathcal{C}$
+\end_inset
+
+ is some sentence in the training corpus, and the Hamiltonian will be a
+ sum over these.
+ That doesn't change.
+\end_layout
+
+\begin_layout Standard
+Next, we say that each sentence 
+\begin_inset Formula $S=\left[w_{1},w_{2},\cdots,w_{n}\right]$
+\end_inset
+
+ is a temporal sequence of specific words 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ aka 
+\begin_inset Quotes eld
+\end_inset
+
+tokens
+\begin_inset Quotes erd
+\end_inset
+
+ in conventional machine learning.
+ Here, the index 
+\begin_inset Formula $i$
+\end_inset
+
+ has a specific meaning: it indicates word–order.
+ Sequential time.
+\end_layout
+
+\begin_layout Standard
+For each sentence 
+\begin_inset Formula $S$
+\end_inset
+
+, consider the set 
+\begin_inset Formula $\mathcal{G}\left(S\right)=\left\{ G\left(S\right)\right\} $
+\end_inset
+
+ of all possible connected graphs 
+\begin_inset Formula $G\left(S\right)$
+\end_inset
+
+ for that sentence.
+ A graph here is a set of edges and vertexes: 
+\begin_inset Formula $G=\left\{ V,E\right\} $
+\end_inset
+
+ (dropping the indicator 
+\begin_inset Formula $S$
+\end_inset
+
+ because we fix the sentence for now.) For a given sentence 
+\begin_inset Formula $S$
+\end_inset
+
+, the set of vertexes is fixed: 
+\begin_inset Formula $V=\left\{ w_{i}|w_{i}\in S\right\} $
+\end_inset
+
+ is the set of the words in the sentence 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ As a set, the order no longer really matters.
+ But it is a multi-set, so its OK to have a word show repeatedly.
+ An edge is just a conventional graph edge: it is an ordered pair of vertexes.
+ Notation: 
+\begin_inset Formula $E_{ij}=\left(w_{i},w_{j}\right)$
+\end_inset
+
+ is the edge connecting words at locations 
+\begin_inset Formula $i,j$
+\end_inset
+
+.
+ It is an ordered pair: edges have direction.
+ For a fixed graph 
+\begin_inset Formula $G$
+\end_inset
+
+ the set of edges can be thought of that the adjacency matrix.
+ This is all very super-basic stuff, but I am trying to be as clear as posible
+ here.
+ Sorry.
+ The adjacency matrix is usually take to be a matrix woth just ones and
+ zeros in it, with one's taken to mean there is an edge, and zero meaning
+ there is not.
+ This can be generalized, but we're not doing that yet.
+\end_layout
+
+\begin_layout Standard
+A connected graph is one where every vertex is reachable by a path from
+ any other vertex.
+ We want to consider only connected graphs; the ability to disconnect will
+ be handled via a different machanism.
+\end_layout
+
+\begin_layout Standard
+For a fixed senttence 
+\begin_inset Formula $S$
+\end_inset
+
+, write the Hamiltonian
+\begin_inset Formula 
+\[
+H\left(S\right)=\sum_{G\in\mathcal{G}}h\left(G\right)
+\]
+
+\end_inset
+
+The sum ranges over all possible connected graphs over the words in the
+ sentence.
+\end_layout
+
+\begin_layout Standard
+Here, we arrive at the next stumbling block
 \end_layout
 
 \begin_layout Section*
