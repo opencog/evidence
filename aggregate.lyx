@@ -105,7 +105,10 @@ Linas Vepštas
 
 \begin_layout Abstract
 Diary entry, attempting to work out some ideas.
- 
+ Wrttten in pseudo–chronological order.
+ Stream–of–consciousness, kind of.
+ Moving forward, I hope.
+ Maybe going in circles.
 \end_layout
 
 \begin_layout Section*
@@ -372,8 +375,81 @@ The symbolic learning project is to determine the lexis automatically.
  Or an old idea or a new idea.
 \end_layout
 
+\begin_layout Section*
+Corpus Model
+\end_layout
+
 \begin_layout Standard
 So, first, define a corpus: a collection of sentences.
+ For the moment, let this be 
+\begin_inset Quotes eld
+\end_inset
+
+bag of sentences
+\begin_inset Quotes erd
+\end_inset
+
+, in jumbled order.
+ A 
+\begin_inset Quotes eld
+\end_inset
+
+sentence
+\begin_inset Quotes erd
+\end_inset
+
+ double be a dozen words.
+ But it could also be an ordered sequence of 100K words, i.e.
+ a book, article, newspaper story, twitter/bluesky post, whatever.
+ The length is immaterial; instead, we just take a collection of them, assumed
+ to be independent.
+ For now.
+ Of course, ten books written on the same topic are not really independent
+ of one-another, but lets not get ahead of ourselves.
+\end_layout
+
+\begin_layout Standard
+The corpus is 
+\begin_inset Formula $\mathcal{C}=\left\{ S_{i}\right\} $
+\end_inset
+
+ which is a set of sentences 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+ labelled with some index 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ There is a total of 
+\begin_inset Formula $\left|\mathcal{C}\right|$
+\end_inset
+
+ sentences, where 
+\begin_inset Formula $\left|\cdot\right|$
+\end_inset
+
+ denotes the size (cardinal) of a set.
+ The Hamiltonian is then
+\begin_inset Formula 
+\[
+\mathcal{H}=\sum_{S_{i}\in\mathcal{C}}H\left(S_{i}\right)
+\]
+
+\end_inset
+
+where the sum ranges over all sentences in the corpus, and 
+\begin_inset Formula $H\left(S_{i}\right)$
+\end_inset
+
+ is the total cost of the parse (linkage) of that sentence.
+\end_layout
+
+\begin_layout Standard
+And so here we meet our first conceptual problem: the linkage is not unique:
+ any given sentence may have many linkages, and, in fact, we have to consdier,
+ in principle, all possible linkages.
 \end_layout
 
 \begin_layout Section*
