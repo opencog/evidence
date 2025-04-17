@@ -246,6 +246,136 @@ The analogy here is strained, and the notation is inadequate.
  If the idea pans out.
 \end_layout
 
+\begin_layout Standard
+What are the 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ really? One interpretation is to say 
+\begin_inset Formula $w_{i}=+1$
+\end_inset
+
+ always, no matter what, and then the sum is simply a sum over the costs
+ of the disjuncts appearing in the sentence.
+ This is the conventional LG model.
+ Another intrpretation is to write 
+\begin_inset Formula $w_{i}=+1$
+\end_inset
+
+ if that word appears in position 
+\begin_inset Formula $i$
+\end_inset
+
+ in the sentence, else it is zero.
+ To arrive at this, we have to be more carefuly with the notation: Define
+\begin_inset Formula 
+\[
+\delta\left(w,v\right)=\begin{cases}
+1 & \mbox{if }w=v\\
+0 & \mbox{if }w\ne v
+\end{cases}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $w,v$
+\end_inset
+
+ are specific words in the lexis.
+ Then the Hamiltonian is
+\begin_inset Formula 
+\[
+\mathcal{H}=-\sum_{uv\cdots}C_{uv\cdots}\delta\left(u,w_{i}\right)\delta\left(v,w_{j}\right)\delta\left(\cdots\right)\cdots
+\]
+
+\end_inset
+
+so that the subscript 
+\begin_inset Formula $i$
+\end_inset
+
+ encodes the position of a word in a sentence, and 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ is the word in that position.
+\end_layout
+
+\begin_layout Standard
+This interpretation is unsatisfying, and wrong, the analogy doesn't work.
+ First of all, the spins in the Ising model can flip up and down, whereas
+ the observed word-order in a given sentence is fixed, inviolable.
+ The above picture could work for sentence generation, where we are considering
+ how to generate some senttence, but that is not yet currently viable given
+ what is written here, so far,
+\end_layout
+
+\begin_layout Standard
+The other issue is that, in classical LG, the disjunct costs 
+\begin_inset Formula $C_{uvw\cdots}$
+\end_inset
+
+ are hand-crafted by the academic scholar defining the lexis.
+ The learn project attempts to replace these costs by those learned from
+ a training corpus, starting from a pair-wise frequenist counting scheme.
+ The 
+\begin_inset Formula $C_{uvw\cdots}$
+\end_inset
+
+ are interpreted as mutual entropies, not energies.
+ There is a reasonable argument for why it should be entropy.
+ For the present case, we note that energies are also additive, so we can
+ keep our minds open about what is being additive, here: energy, information,
+ something else abelian, maybe.
+\end_layout
+
+\begin_layout Standard
+The symbolic learning project is to determine the lexis automatically.
+ To learn the correct numerical values of
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+ 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula $C_{uvw\cdots}$
+\end_inset
+
+.
+ And I want to do this by writing down some kind of Hamiltonian–like summation,
+ and attempting to minimize that.
+ But to do that, I need a dramatic change of notation.
+ Lets try it.
+ See what happens.
+ I have no idea if this is a good idea or a bad idea.
+ Or an old idea or a new idea.
+\end_layout
+
+\begin_layout Standard
+So, first, define a corpus: a collection of sentences.
+\end_layout
+
 \begin_layout Section*
 The End
 \end_layout
