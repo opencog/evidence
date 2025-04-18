@@ -770,7 +770,271 @@ H\left(S\right)=\sum_{G\in\mathcal{G}}h\left(G\right)
 \end_inset
 
 This is the appropriate form, because we want to consider all possible disjunct
- cost assignments, and minimize those
+ cost assignments, and minimize those.
+ Unlike the earlier case where multiple distinct (ambiguous) parses can
+ be tolerated and are even desirable, here, not so much.
+ Here, we do want to discover single unique, unambiguous collection of disjuncts.
+ It is hard to understand why more than one would be desired.
+ Perhaps some hand–waving is possible, but hard to see what that is.
+\end_layout
+
+\begin_layout Standard
+So lets try that.
+ Lets say that there is 
+\begin_inset Quotes eld
+\end_inset
+
+one true set
+\begin_inset Quotes erd
+\end_inset
+
+ of disjuncts that guide the parsing and understanding of the external world.
+ If they are correct and accurate, then all is well and we continue onwards.
+ Sometimes, model updates would be needed.
+ Most of these should be small, but it is easy to imagine avalanches in
+ 
+\begin_inset Quotes eld
+\end_inset
+
+understanding
+\begin_inset Quotes erd
+\end_inset
+
+: if some lexis no longer parses reality, that lexis may need an update.
+ That update may be dramatic.
+\end_layout
+
+\begin_layout Standard
+So why would one want to keep around multiple different lexis? Well, to
+ try them out, maybe see how they differ.
+ In this model, each lexis is an 
+\begin_inset Quotes eld
+\end_inset
+
+individual
+\begin_inset Quotes erd
+\end_inset
+
+, and that individual has it's own view of what the best kinds of parses
+ might be.
+ Most individuals agree, but clearly, if the training corpus for one individual
+ is a bit different from that of another individual, there will be differences.
+\end_layout
+
+\begin_layout Standard
+So I'm having fun with this: any particular collection of disjuncts is an
+ individual.
+ This can of course be taken much more broadly: different LLM weight–sets
+ are indeed 
+\begin_inset Quotes eld
+\end_inset
+
+individuals
+\begin_inset Quotes erd
+\end_inset
+
+, but this diary is not about LLM's, so we won't go there.
+\end_layout
+
+\begin_layout Section*
+Disjuncts
+\end_layout
+
+\begin_layout Standard
+It's time to firm up what the disjunct discovery process will be.
+ For that, an expression for 
+\begin_inset Formula $h\left(G\right)$
+\end_inset
+
+ is needed.
+ So, 
+\begin_inset Formula $G$
+\end_inset
+
+ is a graph, having edges between some words in a sentence, but not others.
+ Talking about words keeps things concrete, but most of the below should
+ generalize just fine for any kind of network graph.
+\end_layout
+
+\begin_layout Standard
+For each word 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ in the sentence, define the disjunct 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ to be the set of edges attached to that word: so
+\begin_inset Formula 
+\[
+D_{i}=\left\{ E_{ij}:E_{ij}\ne0\right\} =\left\{ E_{ij}:E_{ij}\in G\right\} 
+\]
+
+\end_inset
+
+which are two different notations for the same thing: the edge 
+\begin_inset Formula $E_{ij}$
+\end_inset
+
+ is in the graph 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ The colon notation : means 
+\begin_inset Quotes eld
+\end_inset
+
+such that
+\begin_inset Quotes erd
+\end_inset
+
+: the edges such that they belong to the graph.
+ Properly, the disjunct is an ordered list.
+ The sequence of the edges matters (because word–order matters).
+ 
+\end_layout
+
+\begin_layout Standard
+Thus, instead of using set–builder notation 
+\begin_inset Formula $\left\{ \cdot\right\} $
+\end_inset
+
+ we could use other kids of notation.
+ Don't freak, but here are other notations commonly found in the literature:
+\begin_inset Formula 
+\[
+D_{i}=E_{ij_{1}}\otimes E_{ij_{2}}\otimes\cdots\otimes E_{ij_{k}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\otimes$
+\end_inset
+
+ is the tensor product.
+ The reason that the tensor product notation is correct can be found in
+ a variety of other places, so I won't try to explain the motivation for
+ it.
+ Link Grammar uses the & instead of 
+\begin_inset Formula $\otimes$
+\end_inset
+
+ to write down disjuncts.
+ The above is a tensor of arity 
+\begin_inset Formula $k$
+\end_inset
+
+ – it has 
+\begin_inset Formula $k$
+\end_inset
+
+ different connectors.
+ 
+\end_layout
+
+\begin_layout Standard
+Another notation is the bra–ket notation:
+\begin_inset Formula 
+\[
+D_{i}=\left|E_{ij_{1}}\right\rangle \otimes\left|E_{ij_{2}}\right\rangle \otimes\cdots\left|E_{ij_{m}}\right\rangle \otimes\left\langle E_{ij_{m+1}}\right|\otimes\cdots\otimes\left\langle E_{ij_{k}}\right|
+\]
+
+\end_inset
+
+where kets are used whenever 
+\begin_inset Formula $j_{n}<i$
+\end_inset
+
+ and bras are used when 
+\begin_inset Formula $j_{n}>i$
+\end_inset
+
+.
+ That is, 
+\begin_inset Formula $j_{m}$
+\end_inset
+
+ is the index such that 
+\begin_inset Formula $j_{m}<i<j_{m+1}$
+\end_inset
+
+.
+ Note the inequalities are strict: a word ca never link to itself.
+ The point of bra–ket notation is to say that words with 
+\begin_inset Formula $j_{n}<i$
+\end_inset
+
+ link to the left, otherwise they link to the right.
+ This is fine for English but just makes things hard for other languages
+ and for general graphs; the bra–ket notation is problematic for a number
+ of reasons.
+ One is that natural language is not a symmetric monoidal category: the
+ is no dagger operator.
+ It is not true that 
+\begin_inset Formula $\left|\cdot\right\rangle ^{\dagger}=\left\langle \cdot\right|$
+\end_inset
+
+.
+ Another problem is that bra–ket notation is inherently 
+\begin_inset Quotes eld
+\end_inset
+
+heterosexual
+\begin_inset Quotes erd
+\end_inset
+
+, in that inner products can only be formed with one bra and one ket, whereas
+ in 
+\begin_inset Quotes eld
+\end_inset
+
+real life
+\begin_inset Quotes erd
+\end_inset
+
+, connectors may come with other kinds of sexes and mating rules.
+ For example, monosexual connectors, where there is only one sex, are appropriat
+e for graphs with undirected edges, for which left–right ordering does not
+ matter.
+ In other languages, such as Turkish, Finnish and Lithuanian, word order
+ mostly does not matter, but head–dependent order matters very strongly.
+ For those languages, there are four sexes: a product of the dominant head–depen
+dent dependency, and a much weaker left–right mating distinction for a small
+ minority of words.
+ Enough linguistics for now; this gives a flavor of some of the issues that
+ come up in practice.
+\end_layout
+
+\begin_layout Standard
+Although the bra–ket notation is problematic, the tensor notation is not:
+ the non–symmetric monoidal category really is the appropriate category
+ for language.
+ It really is a fragment of linear logic.
+ See Wikipedia articles on pre–group grammars.
+ See all my (Vepstas) paper on 
+\begin_inset Quotes eld
+\end_inset
+
+Categorial Grammars are Equivalent to Link Grammar
+\begin_inset Quotes erd
+\end_inset
+
+; I think search engines can find this.
+\end_layout
+
+\begin_layout Standard
+To conclude: a single disjunct is the same thing as a single–element tensor
+ (a basis tensor, i.e.
+ a product of basis vectors) and this is the same thing as a jigsaw piece.
+ All three of these are the same thing.
+ 
+\end_layout
+
+\begin_layout Standard
+To each 
 \end_layout
 
 \begin_layout Section*
