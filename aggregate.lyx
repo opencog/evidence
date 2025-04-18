@@ -760,8 +760,17 @@ So that is one task: find the statistical distribution of parses that are
 The other task is to learn what the disjuncts are, to learn the cost of
  each disjunct.
  The costs are NOT fixed, we are instead exploring the space of possible
- disjunct assignements.
- For this we need to ...
+ disjunct assignments.
+ For this we need to take the other form: 
+\begin_inset Formula 
+\[
+H\left(S\right)=\sum_{G\in\mathcal{G}}h\left(G\right)
+\]
+
+\end_inset
+
+This is the appropriate form, because we want to consider all possible disjunct
+ cost assignments, and minimize those
 \end_layout
 
 \begin_layout Section*
