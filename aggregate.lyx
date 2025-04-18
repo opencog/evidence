@@ -666,9 +666,9 @@ Training vs.
 \end_layout
 
 \begin_layout Standard
-So, where does that leave us? For now, lets ditch semantics: the original
- problem was to discover a collection of disjuncts that adequately describe
- possible syntactic parses of sentences.
+So, where does that leave us? For now, lets ditch semantics: th In particular,
+ we wante original problem was to discover a collection of disjuncts that
+ adequately describe possible syntactic parses of sentences.
  The goal was to do this with some sort of expression of aggregate satisfiabilit
 y: some kind of function assigning weights to disjuncts, and maximizing
  it.
@@ -1030,11 +1030,284 @@ To conclude: a single disjunct is the same thing as a single–element tensor
  (a basis tensor, i.e.
  a product of basis vectors) and this is the same thing as a jigsaw piece.
  All three of these are the same thing.
- 
+\end_layout
+
+\begin_layout Section*
+Costs
 \end_layout
 
 \begin_layout Standard
-To each 
+To each disjunct, we wish to assign a cost: a floating–point, real–valued
+ number 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ for each 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+.
+ The total cost is then 
+\begin_inset Formula 
+\[
+h\left(G\right)=\sum_{1\le i\le n}\alpha_{i}
+\]
+
+\end_inset
+
+Recall that 
+\begin_inset Formula $G$
+\end_inset
+
+ is fixed, and that therefore the 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ are fixed: they are uniquely determined by the graph.
+ The task is to find an assignment of 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ that minimize the total cost over the entire training corpus.
+\begin_inset Formula 
+\[
+\mathcal{H}=\sum_{S\in\mathcal{C}}H\left(S\right)=\sum_{S\in\mathcal{C}}\sum_{G\in\mathcal{G}}h\left(G\right)
+\]
+
+\end_inset
+
+Of course, this can be met by setting 
+\begin_inset Formula $\alpha_{i}=-\infty$
+\end_inset
+
+ which is pointless, and so a bound is needed: let the costs 
+\begin_inset Formula $0\le\alpha_{i}$
+\end_inset
+
+ be always positive (or above some lower bound.
+ It doesn't matter just right now.)
+\end_layout
+
+\begin_layout Standard
+The above is a general expression.
+ Its correct, but awkward, in a way.
+ For natural language, we want 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ not to depend on the word–position 
+\begin_inset Formula $i$
+\end_inset
+
+ but on the word 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ at that position.
+ That is, write not 
+\begin_inset Formula $D_{i}$
+\end_inset
+
+ but 
+\begin_inset Formula $D\left(w_{i}\right)$
+\end_inset
+
+ and since the disjunct should not depend on the word position, but only
+ the word, then 
+\begin_inset Formula $D\left(w\right)$
+\end_inset
+
+ should be written for the word 
+\begin_inset Formula $w$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Likewise, for the edge 
+\begin_inset Formula $E_{ij}$
+\end_inset
+
+ we don't want a dependency on the word–position 
+\begin_inset Formula $j$
+\end_inset
+
+ but instead on the word 
+\begin_inset Formula $w_{j}$
+\end_inset
+
+ at location 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ Thus, write 
+\begin_inset Formula $E_{ij}=E\left(w_{i},w_{j}\right)$
+\end_inset
+
+ or, better yet, since 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ is the same for all edges in the disjunct, simply write 
+\begin_inset Formula $D\left(w\right)=u\otimes v\otimes\cdots$
+\end_inset
+
+ where 
+\begin_inset Formula $u,v,\cdots$
+\end_inset
+
+ are other words.
+ That is, the disjunct no longer depends on the sentence that it is on,
+ nor does it depend on which location it has in the sentence: it only depends
+ on the word, and it's connectors.
+\end_layout
+
+\begin_layout Standard
+So as not to get lost in abstraction, a practical example is in order.
+ Consider the canonical parse of 
+\begin_inset Quotes eld
+\end_inset
+
+the dog chased the cat
+\begin_inset Quotes erd
+\end_inset
+
+.
+ This has 
+\begin_inset Quotes eld
+\end_inset
+
+chased
+\begin_inset Quotes erd
+\end_inset
+
+ as a transitive verb, 
+\begin_inset Quotes eld
+\end_inset
+
+dog
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+cat
+\begin_inset Quotes erd
+\end_inset
+
+ as nouns, and 
+\begin_inset Quotes eld
+\end_inset
+
+the
+\begin_inset Quotes erd
+\end_inset
+
+ as determiner.
+ The disjuncts are:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "100col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\begin_inset Formula $D\left(\mbox{CHASED}\right)=\mathtt{DOG-\,\&\,CAT+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $D\left(\mbox{DOG}\right)=\mathtt{THE-\,\&\,CHASED+}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $D\left(\mbox{CAT}\right)=\mathtt{THE-\,\&\,CHASED-}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $D\left(\mbox{THE}\right)=\mathtt{DOG+}\mbox{ or }\mathtt{CAT+}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here, the plus and minus indicate a linkage to the left or to the right.
+ The transitive verb links to a subject on the left and an object on the
+ right.
+ English is an SVO language, so we can tell apart the subject noun and the
+ object noun from the directional indicators + and -.
+ So 
+\begin_inset Quotes eld
+\end_inset
+
+cat
+\begin_inset Quotes erd
+\end_inset
+
+ is the object, because it has 
+\begin_inset Quotes eld
+\end_inset
+
+chased-
+\begin_inset Quotes erd
+\end_inset
+
+ on it, and not 
+\begin_inset Quotes eld
+\end_inset
+
+chased+
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Again, this is super–basic stuff; I'm repeating it here so that we can keep
+ our feet on the ground.
+\end_layout
+
+\begin_layout Standard
+That's the good news.
+ The bad news is that I am laboriously re–inventing the skip–gram.
+ To some large degree, if we walk much farther down this path, we risk re–invent
+ing BERT.
+ And that is not really the goal.
+ Soo....
 \end_layout
 
 \begin_layout Section*
