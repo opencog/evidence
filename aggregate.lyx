@@ -215,8 +215,13 @@ Link Grammar
 \begin_layout Standard
 I won't explain what Link Grammar (LG) is, or how it works.
  Read the docs.
- However, I want to write down a a Hamiltonian for it, which is something
- that the Link Grammar docs do not do.
+ (Note: I do end up explaining much of it, further below.
+ It's unavoidable.) 
+\end_layout
+
+\begin_layout Standard
+I want to write down a Hamiltonian for it, which is something that the Link
+ Grammar docs do not do.
  It is analogous to the Ising Model Hamiltonian:
 \begin_inset Formula 
 \[
@@ -1294,6 +1299,16 @@ chased+
 \end_inset
 
 .
+ The ampersand 
+\begin_inset Formula $\&$
+\end_inset
+
+ was used in place of the tensor 
+\begin_inset Formula $\otimes$
+\end_inset
+
+ otimes symbol.
+ This is in keeping with Link Grammar.
 \end_layout
 
 \begin_layout Standard
@@ -1308,6 +1323,24 @@ That's the good news.
 ing BERT.
  And that is not really the goal.
  Soo....
+\end_layout
+
+\begin_layout Section*
+Training
+\end_layout
+
+\begin_layout Standard
+So, armed with a definition of a disjunct that closely resembles a BERT–style
+ skip–gram, can we invent a training technique that avoids the standard
+ transformer foot–path? That is, the goal here is to ask 
+\begin_inset Quotes eld
+\end_inset
+
+is there another way, and what might it be?
+\begin_inset Quotes erd
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Section*
