@@ -22,6 +22,7 @@ Bennnet:
 Paper:
 Investigating the impact of trial retractions on the healthcare evidence ecosystem (VITALITY Study I): retrospective cohort study
 BMJ 2025; 389 doi: https://doi.org/10.1136/bmj-2024-082068 (Published 23 April 2025)
+https://www.bmj.com/content/389/bmj-2024-082068
 Abstract
 Objective To investigate the impact of retracted trials on the
 production and use of healthcare evidence in the evidence ecosystem. ...
