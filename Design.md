@@ -19,10 +19,28 @@ Bennnet:
    systems (by a lot) in training/fitting data.
  * Weak tools can be employed in a greater variety of tasks.
 
+* Phylogeneitc compression
+  Identifying common sequences and marking them as such.
+
+Algorithms:
+ * BLAST (Basic Local Alignment Search Tool) for genome database search.
+
 Paper:
-Investigating the impact of trial retractions on the healthcare evidence ecosystem (VITALITY Study I): retrospective cohort study
-BMJ 2025; 389 doi: https://doi.org/10.1136/bmj-2024-082068 (Published 23 April 2025)
-https://www.bmj.com/content/389/bmj-2024-082068
+ * Efficient and robust search of microbial genomes via phylogenetic compression
+   Karel Břinda, etal.
+   Nature methods Published: 09 April 2025
+   https://www.nature.com/articles/s41592-025-02625-2
+   https://www.biorxiv.org/content/10.1101/2023.04.15.536996v3.full.pdf
+   Abstract:
+   ... Propose phylogenetic compression ... applied to modern diverse
+   collections approaching millions of genomes, lossless phylogenetic
+   compression improves the compression ratios of assemblies, de Bruijn
+   graphs and k-mer indexes by one to two orders of magnitude.
+
+Paper:
+ * nvestigating the impact of trial retractions on the healthcare evidence ecosystem (VITALITY Study I): retrospective cohort study
+  BMJ 2025; 389 doi: https://doi.org/10.1136/bmj-2024-082068 (Published 23 April 2025)
+  https://www.bmj.com/content/389/bmj-2024-082068
 Abstract
 Objective To investigate the impact of retracted trials on the
 production and use of healthcare evidence in the evidence ecosystem. ...
