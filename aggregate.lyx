@@ -585,8 +585,30 @@ al satisfiability.
  of describing natural clustering.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Subsection*
 Jigsaws
+\end_layout
+
+\begin_layout Standard
+In light of the criticisms above, the suggestion is to move to a jigsaw
+ or tiling approach to relationships.
+ The jigsaw paradigm provides a natural setting for writing expressions
+ such as 
+\begin_inset Formula $A,B\to C,D$
+\end_inset
+
+ as well as many other more complex relationships.
+ For example, boolean logic is two–valued: logical variables can assume
+ the values of true or false.
+ In intuitionistic logic, three states are available: true, false or unknown.
+ In typed term algebras, or typed lambda calculii, the variables are typed,
+ and terms, atomic sentences and so on can only be composed if the types
+ match.
+\end_layout
+
+\begin_layout Standard
+The prototypical setting for jigsaws is Link Grammar.
+ See next section..
 \end_layout
 
 \begin_layout Section*
