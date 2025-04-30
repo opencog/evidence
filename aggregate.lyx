@@ -96,7 +96,7 @@ Aggregate Satisfaction
 \end_layout
 
 \begin_layout Date
-17 April 2025
+Version of 29 April 2025 (Started on 17 April 2025)
 \end_layout
 
 \begin_layout Author
@@ -111,6 +111,13 @@ Diary entry, attempting to work out some ideas.
  Maybe going in circles.
 \end_layout
 
+\begin_layout Abstract
+The goal was to try give a precise conception of how to take a collection
+ of statements or assertions, and to satisfy as many of them as possible,
+ all at the same time, while keeping contradictions under control.
+ 
+\end_layout
+
 \begin_layout Section*
 Introduction
 \end_layout
@@ -119,7 +126,7 @@ Introduction
 What follows will be free–form unstructured writing about aggregate satisfiabili
 ty.
  It is an attempt to reconcile a number of quite common and inter–related
- ideas, and to develop a mathematical frammework for them.
+ ideas, and to develop a mathematical framework for them.
  The key ingredients are:
 \end_layout
 
@@ -181,7 +188,8 @@ Ensembles.
 \end_layout
 
 \begin_layout Standard
-So here we go.
+This text is incomplete and imprecise.
+ So here we go.
 \end_layout
 
 \begin_layout Section*
@@ -206,6 +214,379 @@ with
  I won't explain this.
  I copied it from Wikipedia.
  Read that article if you don't know what this is.
+\end_layout
+
+\begin_layout Subsection*
+Motivation
+\end_layout
+
+\begin_layout Standard
+Why start this essay with the Ising Model? For several reasons:
+\end_layout
+
+\begin_layout Itemize
+Imagine one has a collection of 
+\begin_inset Quotes eld
+\end_inset
+
+facts
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+assertions
+\begin_inset Quotes erd
+\end_inset
+
+, or 
+\begin_inset Quotes eld
+\end_inset
+
+constraints
+\begin_inset Quotes erd
+\end_inset
+
+, each of which can be True or False.
+ Map 
+\begin_inset Quotes eld
+\end_inset
+
+True
+\begin_inset Quotes erd
+\end_inset
+
+ to 
+\begin_inset Quotes eld
+\end_inset
+
+spin up
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+false
+\begin_inset Quotes erd
+\end_inset
+
+ to 
+\begin_inset Quotes eld
+\end_inset
+
+spin down
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The if there is a relationship between two assertions 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{j}$
+\end_inset
+
+ then set 
+\begin_inset Formula $J_{ij}\ne0$
+\end_inset
+
+ and set it positive, if both have to be true at the same time, else set
+ it negative.
+\end_layout
+
+\begin_layout Itemize
+For the conventional Ising model on a 2D grid, 
+\begin_inset Formula $J_{ij}\ne0$
+\end_inset
+
+ only when 
+\begin_inset Formula $\sigma_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{j}$
+\end_inset
+
+ are nearest neighbors, in which case 
+\begin_inset Formula $J_{ij}=J$
+\end_inset
+
+.
+ For zero temperature and zero magnetic field, the Hamiltonian is obviously
+ minimized by having all spins aligned.
+ The model is interesting because of it's thermodynamic behavior, at finite
+ temperature, in which thermal energy is allows some of the spins to be
+ non–aligned.
+\end_layout
+
+\begin_layout Itemize
+The attempt being made here is to draw an analogy to systems of logic, such
+ as the Boolean SAT problem.
+ By convention, Boolean SAT is solved with DPLL.
+ The algo there recasts 
+\begin_inset Formula $J_{ij}$
+\end_inset
+
+ as a graph adjacency matrix.
+ The corresponding graph is then some graph with cycles, and a bunch of
+ trees attached to it.
+ The trees are trimmed away, because they can be uniquely determined by
+ the root.
+ This leaves an interconnected kernel.
+ Then, conventionally, one performs a search, possibly an exhaustive search
+ over that kernel, and determine if it is satisfiable.
+ Various techniques can be attempted to speed that search.
+\end_layout
+
+\begin_layout Itemize
+For example, there may be a circular chain of connections, 
+\begin_inset Formula $\sigma_{a}\to\sigma_{b}\to\cdots\to\sigma_{p}\to\lnot\sigma_{a}$
+\end_inset
+
+ which cannot be satisfied because it forces a self–contradiction.
+ So strict zero–temperature Boolean SAT indicates this problem is unsatisfiable.
+ However, by using simulated annealing, one might be able to find find truth
+ assignments that satisfy most of the constraints.
+\end_layout
+
+\begin_layout Itemize
+The problem of satisfiability reared its head in Dough Lenat's CYC; the
+ solution there was to propose 
+\begin_inset Quotes eld
+\end_inset
+
+microtheories
+\begin_inset Quotes erd
+\end_inset
+
+ which were known to be self–consistent, and then hop between these.
+ The suggestion being made here is that such inconsistencies can be thought
+ of as 
+\begin_inset Quotes eld
+\end_inset
+
+lattice frustrations
+\begin_inset Quotes erd
+\end_inset
+
+, and mostly resolved through annealing.
+\end_layout
+
+\begin_layout Itemize
+In the human world of common–sense judgments, it is clear that most humans
+ insist that they are 
+\begin_inset Quotes eld
+\end_inset
+
+rational
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+logical
+\begin_inset Quotes erd
+\end_inset
+
+, even though it is clear that this cannot possibly be true, if one tries
+ to drill down and interrogate the foundations of beliefs.
+ Yet, except for extreme cases involving various forms of mental illness,
+ most humans mostly do have a collection of beliefs that they perceive to
+ be consistent.
+ Those beliefs appear to be malleable via persuasion, propaganda, cult indoctrin
+ation, etc.
+ The proposal here is that perhaps a Hamiltonian approach to a description
+ of belief networks can give some sense of the grounded–ness of those beliefs.
+\end_layout
+
+\begin_layout Itemize
+The relational weights 
+\begin_inset Formula $J_{ij}$
+\end_inset
+
+ can be made dynamic.
+ Thus, for example, inconsistent beliefs about what time of day one left
+ the house might be utterly inconsequential, unless this plays a role in
+ a criminal trial, in which case the truth/falsehood coupling 
+\begin_inset Formula $J_{ab}$
+\end_inset
+
+ between a statement 
+\begin_inset Formula $\sigma_{a}$
+\end_inset
+
+ of when one left the house, and the statement of 
+\begin_inset Formula $\sigma_{b}$
+\end_inset
+
+ of the defendant becomes very important.
+ A large enough value of 
+\begin_inset Formula $J_{ab}$
+\end_inset
+
+ can make the prosecutions case fall apart or to firmly establish guilt.
+ A much softer variant of this can occur during attempts to solve quotidian
+ engineering problems, where one wishes to make trade–offs between different
+ design parameters or criteria: the assigned weights 
+\begin_inset Formula $J_{ab}$
+\end_inset
+
+ can be raised or lowered to taste.
+\end_layout
+
+\begin_layout Standard
+The above is a motivational sketch of why the Ising Model can be interesting
+ and useful in the pursuit of 
+\begin_inset Quotes eld
+\end_inset
+
+common sense
+\begin_inset Quotes erd
+\end_inset
+
+ inference or during evidence gathering.
+ It provides a formalism in which 
+\begin_inset Quotes eld
+\end_inset
+
+aggregate satisfiability
+\begin_inset Quotes erd
+\end_inset
+
+ can be discussed.
+\end_layout
+
+\begin_layout Standard
+There are several problems with the direct use of the Ising Model:
+\end_layout
+
+\begin_layout Itemize
+The matrix entries 
+\begin_inset Formula $J_{ij}$
+\end_inset
+
+ are (by convention) symmetric: 
+\begin_inset Formula $J_{ij}=J_{ji}$
+\end_inset
+
+ whereas conventional logic is causitive or inferential; one writes 
+\begin_inset Formula $P\to Q$
+\end_inset
+
+ to say 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $P$
+\end_inset
+
+ implies 
+\begin_inset Formula $Q$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $P$
+\end_inset
+
+ causes 
+\begin_inset Formula $Q$
+\end_inset
+
+ to happen
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $P$
+\end_inset
+
+ believes that 
+\begin_inset Formula $Q$
+\end_inset
+
+ is true
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Logical statements typically have multiple antecedents: 
+\begin_inset Formula $A,B\to C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+One may wish to strongly couple inferences: that is, to write 
+\begin_inset Formula $A\to B,C$
+\end_inset
+
+.
+ Now, in conventional logic, this can be decomposed into two statements:
+ 
+\begin_inset Formula $\left(A\to B,C\right)\implies\left(A\to B\right)\wedge\left(A\to C\right) $
+\end_inset
+
+ which is fine for crisp logic, but a problem if one is looking for approximate
+ satisfiability.
+ That is, one may want to strongly avoid the situation of 
+\begin_inset Formula $\left(A\to B\right)\wedge\lnot\left(A\to C\right)$
+\end_inset
+
+, choosing instead to negate both 
+\begin_inset Formula $B,C$
+\end_inset
+
+ or neither.
+\end_layout
+
+\begin_layout Standard
+A lesser issue, but one that we should get out of the way, is that of hierarchic
+al satisfiability.
+ That is, one may have strongly interacting clusters, with only weak connections
+ between the clusters.
+ That is, the 
+\begin_inset Formula $J_{ij}$
+\end_inset
+
+ are large, when 
+\begin_inset Formula $i,j$
+\end_inset
+
+ both belong to the same cluster, but are small when 
+\begin_inset Formula $i,j$
+\end_inset
+
+ are in different clusters.
+ The Ising Model doesn't prevent this, but perhaps there's some better way
+ of describing natural clustering.
+\end_layout
+
+\begin_layout Standard
+Jigsaws
 \end_layout
 
 \begin_layout Section*

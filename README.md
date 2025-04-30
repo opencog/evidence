@@ -233,6 +233,13 @@ Detailed Design
 ---------------
 See the [design notes](Design.md) for further rambling design thoughts.
 
+See also some texts written in Lyx (LaTeX), viewable as PDF's:
+* [Aggregate Satisfaction](aggregate.pdf) attempts to formulate a
+  definition of satsifiability that is "effective": that satisfies as
+  many constraints as is reasonable, while also resolving contradictions
+  as much as reasonable, and providing an effective strategy for
+  arriving at "good" values of aggregate satisfiability.
+
 
 Status
 ------
